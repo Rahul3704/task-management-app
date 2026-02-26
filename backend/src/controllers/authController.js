@@ -52,7 +52,8 @@ exports.login = async (req, res, next) => {
   httpOnly: true,
   secure: true,         
   sameSite: "none",      
-  maxAge: 24 * 60 * 60 * 1000
+  maxAge: 24 * 60 * 60 * 1000,
+  path: "/",
 });
     res.status(200).json({
       success: true,
@@ -64,6 +65,12 @@ exports.login = async (req, res, next) => {
 };
 
 exports.logout = (req, res) => {
-  res.clearCookie("token");
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+    path: "/",
+  });
+
   res.status(200).json({ message: "Logged out successfully" });
 };
