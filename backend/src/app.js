@@ -12,8 +12,6 @@ app.use(helmet());
 app.use(express.json());
 app.use(cookieParser());
 
-const cors = require("cors");
-
 app.use(
   cors({
     origin: process.env.FRONTEND_URL,
