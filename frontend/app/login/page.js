@@ -20,28 +20,48 @@ export default function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <form onSubmit={handleLogin} className="space-y-4 w-80">
-        <input
-          type="email"
-          placeholder="Email"
-          className="border p-2 w-full"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          className="border p-2 w-full"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button className="bg-black text-white p-2 w-full">
-          Login
-        </button>
-      </form>
-      <p className="text-center text-sm">
-  Don't have an account? 
-  <a href="/register" className="text-blue-600"> Register</a>
-</p>
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="w-full max-w-md">
+        <div className="bg-white rounded-lg shadow-lg p-8">
+          <h1 className="text-3xl font-bold text-gray-800 mb-2 text-center">Welcome Back</h1>
+          <p className="text-center text-gray-600 mb-8">Sign in to your account</p>
+          
+          <form onSubmit={handleLogin} className="space-y-5">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="border border-gray-300 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
+              <input
+                type="password"
+                placeholder="Enter your password"
+                className="border border-gray-300 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            
+            <button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold p-3 rounded-lg hover:from-blue-700 hover:to-indigo-700 transform transition hover:scale-105 shadow-md">
+              Login
+            </button>
+          </form>
+
+          <p className="text-center text-sm text-gray-600 mt-6">
+            Don't have an account?{" "}
+            <a href="/register" className="text-blue-600 font-semibold hover:text-blue-700 transition">
+              Register here
+            </a>
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
